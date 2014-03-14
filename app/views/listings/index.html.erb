@@ -1,0 +1,22 @@
+<h1>Listing listings</h1>
+
+<div class="center"
+    <div class="row">
+      <% @listings.each do |listing| %>
+         
+         <div class="col-md-3">
+          <div class="thumbnail">
+          <%= image_tag listing.image.url %>
+        </div>
+          <h3><%= listing.name %></h3>
+          <%= listing.description %><br>
+          <%= listing.price %><br>
+          <%= link_to 'Show', listing %><br>
+          <%= link_to 'Edit', edit_listing_path(listing) %><br>
+          <%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+    </div>
+
+<%= link_to 'New Listing', new_listing_path %>
+</div>
